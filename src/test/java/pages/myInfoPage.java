@@ -11,17 +11,21 @@ public class myInfoPage {
         this.driver=driver;
     }
 
+
     private By btnSearch= By.cssSelector("input[placeholder='Search']");
-    private By txtMyInfo= By.cssSelector("input[placeholder='Search']");
-    private By btmSearchName= By.cssSelector(".oxd-main-menu-item--name");
-    private By txtNameFirstName = By.cssSelector(".oxd-main-menu-item--name");
+
+    private By btnMyInfo = By.cssSelector(".oxd-main-menu-item--name");
+    private By txtNameFirstName = By.cssSelector("input[name='firstName']");
 
     public void ingresarDatos() throws InterruptedException {
 
         Thread.sleep(2000);
         driver.findElement(btnSearch).click();
-        driver.findElement(txtMyInfo).sendKeys("MyInfo");
-        driver.findElement(btmSearchName).click();
+        driver.findElement(btnSearch).sendKeys("My Info");
+
+        driver.findElement(btnMyInfo).click();
+        Thread.sleep(2000);
+        driver.findElement(txtNameFirstName).clear();
         driver.findElement(txtNameFirstName).sendKeys("Katherine");
 
     }
